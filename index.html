@@ -23,7 +23,8 @@
 			$('#ok').click(function(){
 				var w=$('#width').val()*1;
 				var h=$('#height').val()*1;
-				$('#result').text(make(w,h));
+				console.log(w,h);
+				$('#result').html(make(w,h));
 			});
 		});
 	</script>
