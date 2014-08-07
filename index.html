@@ -1,21 +1,32 @@
----
-layout: default
----
-
-<div class="home">
-
-  <h1>Posts</h1>
-
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
-</div>
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>彩钢计算工具</title>
+	<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+</head>
+<body>
+	请输入宽度值<input type="text" name="" id="width"/>
+	<br/>
+	请输入高度值<input type="text" name="" id="height"/>
+	<br/>
+	<input type="button" id="ok" value="计算"/>
+	<div id="result"></div>
+	<script type="text/javascript">
+		var make=function(w,h){
+					var _w=w/2;
+					var d=Math.pow(_w,2)/h+h;
+					var cl=Math.asin(w/d)*d;
+					return cl;
+				};
+		$(function(){
+			$('#ok').click(function(){
+				var w=$('#width').val();
+				var h=$('#height').val();
+				$('#result').text(make(w,h));
+			});
+		});
+	</script>
+</body>
+</html>
 
