@@ -21,12 +21,11 @@
 				};
 		$(function(){
 			$('#ok').click(function(){
-				var w=$('#width').val();
-				var h=$('#height').val();
+				var w=$('#width').val()*1;
+				var h=$('#height').val()*1;
 				$('#result').text(make(w,h));
 			});
 		});
 	</script>
 </body>
 </html>
-
